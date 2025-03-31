@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: DAGV-1200-FinalScene.ma
-//Last modified: Mon, Mar 31, 2025 03:21:50 PM
+//Last modified: Mon, Mar 31, 2025 03:22:38 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.3.1.1";
@@ -10,18 +10,18 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202304191415-7fa20164c6";
 fileInfo "osv" "Windows 11 Enterprise v2009 (Build: 22621)";
-fileInfo "UUID" "E9F0114F-4D2E-AB59-633B-578AF6B286B4";
+fileInfo "UUID" "4698A530-4ADE-4454-1CDF-AAA2C85FDE22";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "46302252-47F6-3E3A-32D2-16940D9A86C8";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 28 21 28 ;
-	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999972 -5.172681101354183e-14 ;
+	setAttr ".t" -type "double3" 22.759374891535693 23.987085166198764 17.400856025291834 ;
+	setAttr ".r" -type "double3" -39.938352729602528 52.600000000000151 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "F33C8F61-495A-AAE5-F431-6EB1E097511E";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 44.82186966202994;
+	setAttr ".coi" 37.365213643666706;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -76,6 +76,20 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
+createNode transform -n "pCube1";
+	rename -uid "4B669153-450A-9EB1-1667-9D936A7BC15D";
+	setAttr ".t" -type "double3" 0 3 0 ;
+	setAttr ".s" -type "double3" 6 6 6 ;
+createNode mesh -n "pCubeShape1" -p "pCube1";
+	rename -uid "8D3937F4-4EA5-4E0F-7B5B-249FBFB50C75";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "9547CA83-4817-5768-FB34-12B54E96DFF2";
 	setAttr -s 2 ".lnk";
@@ -154,6 +168,16 @@ createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "A09FEA74-4BCF-CC9F-E165-81827BC3E098";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
+createNode polyCube -n "polyCube1";
+	rename -uid "07A8D216-4A77-B425-D16F-99882E1FD4CE";
+	setAttr ".cuv" 4;
+createNode deleteComponent -n "deleteComponent1";
+	rename -uid "4C27C2EC-474E-B51C-B798-D6BBD39FCBC3";
+	setAttr ".dc" -type "componentList" 2 "f[0:1]" "f[4]";
+createNode polyNormal -n "polyNormal1";
+	rename -uid "2C6242CC-4A5F-BA15-5044-C293B6D720EC";
+	setAttr ".ics" -type "componentList" 1 "f[0:2]";
+	setAttr ".unm" no;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -197,6 +221,7 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
+connectAttr "polyNormal1.out" "pCubeShape1.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -207,5 +232,8 @@ connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drive
 		 -na;
 connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
 connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
+connectAttr "polyCube1.out" "deleteComponent1.ig";
+connectAttr "deleteComponent1.og" "polyNormal1.ip";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
 // End of DAGV-1200-FinalScene.ma
