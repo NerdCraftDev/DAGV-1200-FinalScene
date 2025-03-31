@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: DAGV-1200-FinalScene.ma
-//Last modified: Mon, Mar 31, 2025 03:54:54 PM
+//Last modified: Mon, Mar 31, 2025 04:05:50 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.3.1.1";
@@ -10,18 +10,18 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202304191415-7fa20164c6";
 fileInfo "osv" "Windows 11 Enterprise v2009 (Build: 22621)";
-fileInfo "UUID" "81D96E0F-437E-A455-5BAF-1D970A8B73B8";
+fileInfo "UUID" "9AC362A3-4E98-8039-0666-77AB80EDA12B";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "46302252-47F6-3E3A-32D2-16940D9A86C8";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 8.1117994427877615 5.7629534013042791 7.3466634764593968 ;
-	setAttr ".r" -type "double3" -23.138352729661669 423.39999999980176 3.5516361005572779e-15 ;
+	setAttr ".t" -type "double3" 19.135353035447373 12.250446394756842 2.1975771326066527 ;
+	setAttr ".r" -type "double3" -29.738352729769943 441.00000000021691 2.0331547020163224e-14 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "F33C8F61-495A-AAE5-F431-6EB1E097511E";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 12.75040555519405;
+	setAttr ".coi" 22.736063078331203;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -11394,10 +11394,240 @@ createNode mesh -n "LegCrossShape3" -p "|TableGroup01|LegsGroup02|LegCross03";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "EasleGroup";
+	rename -uid "2AB896D2-4DB5-9F9A-9FCE-6EA5CDB437AF";
+	setAttr ".t" -type "double3" 0 -0.18617872141963079 -1.3800446841172933 ;
+createNode transform -n "EasleLeg01" -p "EasleGroup";
+	rename -uid "E81B1A10-4AC3-E72D-5FC1-6B876E01BDF8";
+	setAttr ".t" -type "double3" 0 2 0 ;
+	setAttr ".r" -type "double3" -14.999999999999998 0 0 ;
+	setAttr ".s" -type "double3" 0.2 3 0.2 ;
+createNode mesh -n "EasleLegShape1" -p "EasleLeg01";
+	rename -uid "F0807694-4D5B-872A-5854-339CF823C900";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "EasleLeg02" -p "EasleGroup";
+	rename -uid "C627F3CB-4026-3A22-0999-84A6F1B356AB";
+	setAttr ".t" -type "double3" 0.4 1.85 0.047349093697536149 ;
+	setAttr ".r" -type "double3" -14.999999999999998 0 14.999999999999998 ;
+	setAttr ".s" -type "double3" 0.2 2.75 0.15 ;
+createNode mesh -n "EasleLegShape2" -p "EasleLeg02";
+	rename -uid "AA091AEA-4835-4DC7-1C02-F9A88B0C9989";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "EasleLeg03" -p "EasleGroup";
+	rename -uid "D089B7EA-47BC-0BE4-1EF4-59A60AF2700E";
+	setAttr ".t" -type "double3" -0.4 1.85 0.047349093697536149 ;
+	setAttr ".r" -type "double3" -14.999999999999998 0 -14.999999999999998 ;
+	setAttr ".s" -type "double3" 0.2 2.75 0.15 ;
+createNode mesh -n "EasleLegShape3" -p "EasleLeg03";
+	rename -uid "ABA0273C-47FC-C715-6787-9C8FB2E71487";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "EasleLeg04" -p "EasleGroup";
+	rename -uid "AF5087B5-45A2-5EA0-6EA2-74AD73CA3C7C";
+	setAttr ".t" -type "double3" 0 1.4367401221256004 -0.56279131016505202 ;
+	setAttr ".r" -type "double3" 25 0 0 ;
+	setAttr ".s" -type "double3" 0.2 2 0.2 ;
+createNode mesh -n "EasleLegShape4" -p "EasleLeg04";
+	rename -uid "4F273AAA-4254-42EE-88A6-899D8E19BAD7";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "EasleLeg05" -p "EasleGroup";
+	rename -uid "FA68A3FD-44AA-8EE0-1EED-09A3F3ED4FFE";
+	setAttr ".t" -type "double3" -3.7708273442752971e-16 1.6565072119004949 0.257390634706405 ;
+	setAttr ".r" -type "double3" -14.999999999999998 0 0 ;
+	setAttr ".s" -type "double3" 1.5 0.2 0.2 ;
+	setAttr ".rp" -type "double3" 0 -1.7763568394002506e-16 0.10000000000000012 ;
+	setAttr ".rpt" -type "double3" 0 0.025881904510252331 -0.003407417371093169 ;
+	setAttr ".sp" -type "double3" 0 -8.8817841970012523e-16 0.50000000000000111 ;
+	setAttr ".spt" -type "double3" 0 7.1054273576010023e-16 -0.40000000000000102 ;
+createNode mesh -n "EasleLegShape5" -p "EasleLeg05";
+	rename -uid "8179005E-4DFA-268B-367A-1EADB40B9544";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "9547CA83-4817-5768-FB34-12B54E96DFF2";
-	setAttr -s 2 ".lnk";
-	setAttr -s 2 ".slnk";
+	setAttr -s 3 ".lnk";
+	setAttr -s 3 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
 	rename -uid "BC4E57B3-4AE6-85B7-458E-738BBE40BE3E";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
@@ -11505,6 +11735,24 @@ createNode polyCube -n "polyCube3";
 createNode polyCube -n "polyCube4";
 	rename -uid "ABEE0F9D-4AF8-906B-C7E3-70BB5EC6D753";
 	setAttr ".cuv" 4;
+createNode lambert -n "lambert2";
+	rename -uid "43B88BA8-42EE-4184-5BC4-FFB568F847FD";
+	setAttr ".c" -type "float3" 0.141 0.10010853 0.052451998 ;
+createNode shadingEngine -n "lambert2SG";
+	rename -uid "66B7D51A-43DC-29D2-1F68-50895F42DAE7";
+	setAttr ".ihi" 0;
+	setAttr -s 35 ".dsm";
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo1";
+	rename -uid "9B145390-4703-418D-4E7C-13A858D35133";
+createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
+	rename -uid "41BB8782-4DE0-9D06-9620-0E95BD392399";
+	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
+	setAttr ".tgi[0].vl" -type "double2" -44.047617297323995 -617.85711830570688 ;
+	setAttr ".tgi[0].vh" -type "double2" 765.47616005890086 44.047617297323995 ;
+createNode polyCube -n "polyCube5";
+	rename -uid "DC6551C0-4DCC-1FC1-6618-30A716EE3DB4";
+	setAttr ".cuv" 4;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -11516,10 +11764,10 @@ select -ne :hardwareRenderingGlobals;
 	setAttr ".fprt" yes;
 	setAttr ".rtfm" 1;
 select -ne :renderPartition;
-	setAttr -s 2 ".st";
+	setAttr -s 3 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 5 ".s";
+	setAttr -s 6 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
@@ -11527,7 +11775,7 @@ select -ne :standardSurface1;
 	setAttr ".bc" -type "float3" 0.40000001 0.40000001 0.40000001 ;
 	setAttr ".sr" 0.5;
 select -ne :initialShadingGroup;
-	setAttr -s 51 ".dsm";
+	setAttr -s 21 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -11554,10 +11802,13 @@ connectAttr "polyBevel1.out" "|PlanksGroup|PlankRow01|Plank01|PlankShape1.i";
 connectAttr "polyCube3.out" "TableTopShape.i";
 connectAttr "polyCube4.out" "|TableGroup01|LegsGroup01|TableLeg01|TableLegShape1.i"
 		;
+connectAttr "polyCube5.out" "EasleLegShape1.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drivers"
@@ -11568,78 +11819,83 @@ connectAttr "polyCube1.out" "deleteComponent1.ig";
 connectAttr "deleteComponent1.og" "polyNormal1.ip";
 connectAttr "polyCube2.out" "polyBevel1.ip";
 connectAttr "|PlanksGroup|PlankRow01|Plank01|PlankShape1.wm" "polyBevel1.mp";
+connectAttr "lambert2.oc" "lambert2SG.ss";
+connectAttr "|PlanksGroup|PlankRow10|Plank03|PlankShape3.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow10|Plank02|PlankShape2.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow10|Plank01|PlankShape1.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow09|Plank03|PlankShape3.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow09|Plank02|PlankShape2.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow09|Plank01|PlankShape1.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow08|Plank03|PlankShape3.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow08|Plank02|PlankShape2.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow08|Plank01|PlankShape1.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow07|Plank04|PlankShape4.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow07|Plank05|PlankShape5.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow07|Plank06|PlankShape6.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow07|Plank07|PlankShape7.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow06|Plank04|PlankShape4.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow06|Plank05|PlankShape5.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow06|Plank06|PlankShape6.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow06|Plank07|PlankShape7.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow05|Plank04|PlankShape4.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow05|Plank05|PlankShape5.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow05|Plank06|PlankShape6.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow05|Plank07|PlankShape7.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow04|Plank04|PlankShape4.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow04|Plank05|PlankShape5.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow04|Plank06|PlankShape6.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow04|Plank07|PlankShape7.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow03|Plank03|PlankShape3.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow03|Plank02|PlankShape2.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow03|Plank01|PlankShape1.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow02|Plank04|PlankShape4.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow02|Plank05|PlankShape5.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow02|Plank06|PlankShape6.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow02|Plank07|PlankShape7.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow01|Plank03|PlankShape3.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow01|Plank02|PlankShape2.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "|PlanksGroup|PlankRow01|Plank01|PlankShape1.iog" "lambert2SG.dsm" -na
+		;
+connectAttr "lambert2SG.msg" "materialInfo1.sg";
+connectAttr "lambert2.msg" "materialInfo1.m";
+connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
+connectAttr "lambert2.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "WhiteboxRoomShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|PlanksGroup|PlankRow01|Plank01|PlankShape1.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow01|Plank02|PlankShape2.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow01|Plank03|PlankShape3.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow02|Plank04|PlankShape4.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow02|Plank05|PlankShape5.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow02|Plank06|PlankShape6.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow02|Plank07|PlankShape7.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow03|Plank01|PlankShape1.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow03|Plank02|PlankShape2.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow03|Plank03|PlankShape3.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow04|Plank07|PlankShape7.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow04|Plank06|PlankShape6.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow04|Plank05|PlankShape5.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow04|Plank04|PlankShape4.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow05|Plank07|PlankShape7.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow05|Plank06|PlankShape6.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow05|Plank05|PlankShape5.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow05|Plank04|PlankShape4.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow06|Plank07|PlankShape7.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow06|Plank06|PlankShape6.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow06|Plank05|PlankShape5.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow06|Plank04|PlankShape4.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow07|Plank07|PlankShape7.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow07|Plank06|PlankShape6.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow07|Plank05|PlankShape5.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow07|Plank04|PlankShape4.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow08|Plank01|PlankShape1.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow08|Plank02|PlankShape2.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow08|Plank03|PlankShape3.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow09|Plank01|PlankShape1.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow09|Plank02|PlankShape2.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow09|Plank03|PlankShape3.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow10|Plank01|PlankShape1.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow10|Plank02|PlankShape2.iog" ":initialShadingGroup.dsm"
-		 -na;
-connectAttr "|PlanksGroup|PlankRow10|Plank03|PlankShape3.iog" ":initialShadingGroup.dsm"
-		 -na;
 connectAttr "TableTopShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "|TableGroup01|LegsGroup01|TableLeg01|TableLegShape1.iog" ":initialShadingGroup.dsm"
 		 -na;
@@ -11669,4 +11925,9 @@ connectAttr "|TableGroup01|LegsGroup01|LegCross03|LegCrossShape3.iog" ":initialS
 		 -na;
 connectAttr "|TableGroup01|LegsGroup02|LegCross03|LegCrossShape3.iog" ":initialShadingGroup.dsm"
 		 -na;
+connectAttr "EasleLegShape1.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "EasleLegShape2.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "EasleLegShape3.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "EasleLegShape4.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "EasleLegShape5.iog" ":initialShadingGroup.dsm" -na;
 // End of DAGV-1200-FinalScene.ma
